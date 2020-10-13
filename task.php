@@ -109,12 +109,30 @@ $names = ["田中", "佐藤", "佐々木", "高橋"];
 
 # 以下に回答を記載
 
+$names2 = [];
+
+foreach ($names as $key => $name) {
+  $number = $key + 1;
+  $name2 = '会員NO.' . $number . ' ' . $name;
+  array_push($names2, $name2);
+}
+
+print_r($names2);
+
 echo PHP_EOL;
 
 print("#####q10#####" . PHP_EOL);
 $foods = ["いか", "たこ", "うに", "しゃけ", "うにぎり", "うに軍艦", "うに丼"];
 
 # 以下に回答を記載
+
+foreach ($foods as $food) {
+  if (preg_match('/うに/', $food)) {
+    print_r('好物です' . PHP_EOL);
+  } else {
+    print_r('まぁまぁ好きです' . PHP_EOL);
+  }
+}
 
 echo PHP_EOL;
 
@@ -123,12 +141,41 @@ $sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"],
 
 # 以下に回答を記載
 
+$sports2 = [];
+foreach ($sports as $key => $sport) {
+  if (is_array($sport)) {
+    //$sports2に配列を結合させる
+    $sports2 = array_merge($sports2, $sport);
+  } else {
+    //$sports2に追加
+    array_push($sports2, $sport);
+  }
+}
+
+//重複した要素を削除
+$sports2 = array_unique($sports2);
+//全ての配列を取得
+$sports2 = array_values($sports2);
+
+$sports3 = [];
+foreach ($sports2 as $key => $sport) {
+  $number = $key + 1;
+  $sport3 = 'No' . $number . ' ' . $sport;
+  //$sports3に$sport3の配列を追加
+  array_push($sports3, $sport3);
+}
+
+print_r($sports3);
+
+
 echo PHP_EOL;
 
 print("#####q12#####" . PHP_EOL);
 $data = ["user" => ["name" => "satou", "age" => 33]];
 
 # 以下に回答を記載
+//'satou'を出力
+print_r($data['user']['name']);
 
 echo PHP_EOL;
 
@@ -137,6 +184,9 @@ $user_data = ["name" => "神里", "age" => 31, "address" => "埼玉"];
 $update_data = ["age" => 32, "address" => "沖縄"];
 
 # 以下に回答を記載
+$user_data = $update_data + $user_data;
+
+print_r($user_data);
 
 echo PHP_EOL;
 
@@ -145,6 +195,14 @@ $data = ["name" => "satou", "age" => 33, "address" => "saitama", "hobby" => "soc
 
 # 以下に回答を記載
 
+$new_data = [];
+//全てのキーを出力
+foreach ($data as $one_data) {
+  array_push($new_data, $one_data);
+}
+
+print_r($new_data);
+
 echo PHP_EOL;
 
 print("#####q15#####" . PHP_EOL);
@@ -152,6 +210,19 @@ $data1 = ["name" => "saitou", "hobby" => "soccer", "age" => 33, "role" => "admin
 $data2 = ["name" => "yamada", "hobby" => "baseball", "role" => "normal"];
 
 # 以下に回答を記載
+
+if (array_key_exists('age', $data1)) {
+  print_r('OK' . PHP_EOL);
+} else {
+  print_r('NG' . PHP_EOL);
+}
+
+if (array_key_exists('age', $data2)) {
+  print_r('OK' . PHP_EOL);
+} else {
+  print_r('NG' . PHP_EOL);
+}
+
 
 echo PHP_EOL;
 
@@ -164,6 +235,9 @@ $users = [
 ];
 
 # 以下に回答を記載
+foreach ($users as $key => $user) {
+  echo '私の名前は' . $user["name"] . 'です。年齢は' . $user["age"] . '歳です。' . PHP_EOL;
+}
 
 echo PHP_EOL;
 
