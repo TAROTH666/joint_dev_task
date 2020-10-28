@@ -297,7 +297,7 @@ class Man
   function introduce()
   {
     if ($this->age >= 20) {
-      print_r("こんにちは、" . $this->name . "と申します。よろしくお願いいたします。" . PHP_EOL);
+      print_r("こんにちは、" . $this->name . "と申します。宜しくお願いいたします。" . PHP_EOL);
     } else {
       print_r("はいさいまいど〜，" . $this->name . "です！！！");
     }
@@ -362,13 +362,13 @@ class Zoo
   function info_entry_fee(Human $human)
   {
     if ($human->age <= 5) {
-      print_r($human->name . "の入場料金は " . $this->entry_fee["infant"] . " 円です。" . PHP_EOL);
+      print_r($human->name . "さんの入場料金は " . $this->entry_fee["infant"] . " 円です。" . PHP_EOL);
     } elseif ($human->age <= 12) {
-      print_r($human->name . "の入場料金は " . $this->entry_fee["children"] . " 円です。" . PHP_EOL);
+      print_r($human->name . "さんの入場料金は " . $this->entry_fee["children"] . " 円です。" . PHP_EOL);
     } elseif ($human->age <= 64) {
-      print_r($human->name . "の入場料金は " . $this->entry_fee["adult"] . " 円です。" . PHP_EOL);
+      print_r($human->name . "さんの入場料金は " . $this->entry_fee["adult"] . " 円です。" . PHP_EOL);
     } else {
-      print_r($human->name . "の入場料金は " . $this->entry_fee["senior"] . " 円です。" . PHP_EOL);
+      print_r($human->name . "さんの入場料金は " . $this->entry_fee["senior"] . " 円です。" . PHP_EOL);
     }
   }
 }
@@ -388,7 +388,7 @@ foreach ($humans as $human) {
 
 echo PHP_EOL;
 
-print("#####q20#####" . PHP_EOL);
+print("#####q21#####" . PHP_EOL);
 
 for ($i = 1; $i < 31; $i++) {
 
