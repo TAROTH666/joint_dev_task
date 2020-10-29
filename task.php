@@ -362,13 +362,13 @@ class Zoo
   function info_entry_fee(Human $human)
   {
     if ($human->age <= 5) {
-      print_r($human->name . "さんの入場料金は " . $this->entry_fee["infant"] . " 円です。" . PHP_EOL);
+      print($human->name . "さんの入場料金は " . $this->entry_fee["infant"] . " 円です。" . PHP_EOL);
     } elseif ($human->age <= 12) {
-      print_r($human->name . "さんの入場料金は " . $this->entry_fee["children"] . " 円です。" . PHP_EOL);
+      print($human->name . "さんの入場料金は " . $this->entry_fee["children"] . " 円です。" . PHP_EOL);
     } elseif ($human->age <= 64) {
-      print_r($human->name . "さんの入場料金は " . $this->entry_fee["adult"] . " 円です。" . PHP_EOL);
-    } else {
-      print_r($human->name . "さんの入場料金は " . $this->entry_fee["senior"] . " 円です。" . PHP_EOL);
+      print($human->name . "さんの入場料金は " . $this->entry_fee["adult"] . " 円です。" . PHP_EOL);
+    } elseif ($human->age <= 120) {
+      print($human->name . "さんの入場料金は " . $this->entry_fee["senior"] . " 円です。" . PHP_EOL);
     }
   }
 }
@@ -390,6 +390,7 @@ echo PHP_EOL;
 
 print("#####q21#####" . PHP_EOL);
 
+print("回答例1" . PHP_EOL);
 for ($i = 1; $i < 31; $i++) {
 
   if ($i % 3 == 0 && $i % 5 == 0) {
@@ -405,4 +406,24 @@ for ($i = 1; $i < 31; $i++) {
   } else {
     echo $i . PHP_EOL;
   }
+}
+echo PHP_EOL;
+print("回答例2" . PHP_EOL);
+for ($i = 1; $i <= 30; $i++) {
+  $result = '';
+
+  if ($i % 3 == 0) {
+    $result .= 'Fizz';
+  }
+  if ($i % 5 == 0) {
+    $result .= 'Buzz';
+  }
+  if ($i % 7 == 0) {
+    $result .= 'Hoge';
+  }
+  if ($result == '') {
+    $result .= (string) $i;
+  }
+
+  echo $result . PHP_EOL;
 }
